@@ -12,9 +12,9 @@ docker-compose exec php bash
 
 composer create-project laravel/laravel [プロジェクト名] --prefer-dist "6.*"
 
-プロジェクト名は、developの場合は
+_プロジェクト名は、developの場合
 
-composer create-project laravel/laravel develop --prefer-dist "6.*"
+_composer create-project laravel/laravel develop --prefer-dist "6.*"
 
 docker/nginx/default.confを開く
 
@@ -24,18 +24,22 @@ docker restart laravel_nginx
 
 http://localhost:8081にアクセスするとLaravelのホーム画面が表示されたらLaravelのインストールが成功
 
-## MYSQL
-Laravelの設定ファイルである、.envを下のように編集
+## LaravelとMYSQLが接続できているかチェック
 
+
+## .env
+
+```
 DB_CONNECTION=mysql
 DB_HOST=laravel_mysql
 DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=laravel
 DB_PASSWORD=kjfdslkjfdsfds
-
-LaravelとMYSQLが接続できているかチェック
+```
 
 docker-compose exec php bash
+
 cd /var/www/develop
+
 php artisan migrate
